@@ -21,7 +21,23 @@ Slides and notes for a seminar presentation at the Monash University NUMBATs sem
 
 #### Abstract
 
-TBC
+The design of software varies drastically by domain, language, and the individual developer.
+* Good code, bad code (smell and feel)
+* R, Python, Julia, C++
+* Base R, tidy R
+
+#### Structure
+
+* Human interface devices (HID) for statistical computing (point and click, VR, focus on writing code)
+* Variability of code design by domain, language, and author
+* Differences in code domain (math, statistics, websites, data)
+* Differences in code language (R, Python, Julia, C++... prophet example for how it can go wrong)
+* Differences by developer (Base R, Tidy R - good code, bad code)
+* Tips for writing good code and avoiding bad code (mostly for R, but with some generality to the style of other languages)
+
+#### Format
+
+30 minute seminar followed by a 15 minute Q&A.
 
 #### Bio
 
