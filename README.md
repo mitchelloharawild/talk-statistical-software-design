@@ -3,7 +3,7 @@
 
 # The design of statistical software
 
-### NUMBATs Seminar (2023-03-23)
+### NUMBATs Seminar (2023-03-30)
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -34,7 +34,8 @@ user-friendly.
 - Differences in code domain (math, statistics, websites, data)
 - Differences in code language (R, Python, Julia, C++… prophet example
   for how it can go wrong)
-- Differences by developer (Base R, Tidy R - good code, bad code)
+- Differences by developer (Base R, Tidy R, Bioconductor - good code,
+  bad code)
 - Tips for writing good code and avoiding bad code (mostly for R, but
   with some generality to the style of other languages)
 

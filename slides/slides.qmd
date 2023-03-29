@@ -1,0 +1,590 @@
+---
+format: 
+  revealjs:
+    css: custom.css
+---
+
+## {background-color="white" background-image="backgrounds/joanna-kosinska-1_CMoFsPfso-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom style="height: 70%"}
+::: {.r-fit-text}
+The design of statistical software
+:::
+:::
+
+::: {.v-center}
+Mitchell O'Hara-Wild
+:::
+
+## {background-color="white" background-image="backgrounds/eran-menashri-zfVIh4cX_4c-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom style="height: 40%"}
+This presentation is <span class="fragment strike" data-fragment-index="1">biased</span>
+:::
+
+::: {.v-center}
+<p class="fragment fade-in" data-fragment-index="1">opinionated! 😇</p>
+:::
+
+## {background-color="white" background-image="backgrounds/PXL_20230128_014531932.jpg" background-size=cover}
+
+::: {.v-right}
+These opinions are shaped by my experiences.
+:::
+
+::: {.fragment .fade-in .v-right}
+So, who am I?
+:::
+<!-- Focus on code style, specifically R. -->
+
+## {background-color="white" background-image="backgrounds/20221018_064630_08F2CB6E.jpg" background-size=cover}
+
+::: {.pull-left .box-blond .v-fill .fragment .fade-in}
+I like to...
+
+:::{.center .fragment .fade-in}
+🛠️ Make things 🛠️
+:::
+
+:::{.center .fragment .fade-in}
+🍄🌱 Grow food 🍯🥚
+:::
+
+:::{.center .fragment .fade-in}
+🖌️ Design systems 🎨
+:::
+
+:::{.center .fragment .fade-in}
+💻 Write code 💻
+:::
+
+:::{.center .fragment .fade-in}
+📈 Utilise data 📊
+:::
+
+::: {.center .fragment .fade-in}
+<video data-autoplay src="media/sleigh.mp4"></video>
+:::
+:::
+
+## {background-color="white" background-image="backgrounds/PXL_20230329_080901601.jpg" background-size=cover}
+
+::: {.box-blond .center .fragment .fade-in}
+I'm most experienced in designing R packages.
+:::
+
+<br>
+<br>
+<br>
+<br>
+
+::: {.box-blond .center .fragment .fade-in}
+There are many talented users and developers of statistical software here, please share your opinions at any time!
+:::
+
+## {background-color="white" background-image="backgrounds/alexander-hafemann-M-EwSRl8BK8-unsplash.jpg" background-size=cover}
+
+:::{.center}
+My data analytics experience in R is just a small part of the statistical software ecosystem.
+:::
+
+:::{.notes}
+Excel, Tableau, PowerBI, etc.
+:::
+
+## {background-color="white" background-image="backgrounds/mad2023_statlang.png" background-size=contain}
+
+## {background-color="white" background-image="backgrounds/mad2023_oss.png" background-size=contain}
+
+
+## {background-color="white" background-image="backgrounds/mad2023.png" background-size=contain}
+
+## {background-color="black" background-image="backgrounds/Pale_Blue_Dot.png" background-size=cover}
+
+::: {.center .fragment .fade-in}
+R is a <u>**tiny**</u> part of the statistical software landscape.
+:::
+
+::: {.center .fragment .fade-in}
+I'm most experienced in using R and designing R packages.
+:::
+
+<br>
+<br>
+
+::: {.center .fragment .fade-in}
+I will explore statistical software design with increasing specificity toward this very specific area I'm most familiar with.
+:::
+
+<br>
+<br>
+
+::: {.center .fragment .fade-in}
+So yes, this talk is also <u>**biased**</u> 🙃
+:::
+
+## {background-color="white" background-image="backgrounds/scott-webb-hDyO6rr3kqk-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom style="height: 10%"}
+::: {.r-fit-text}
+The design of statistical software
+:::
+:::
+
+::: {.center .fragment .fade-in}
+⚠️ This talk is not about writing good code! ⚠️
+<br>
+*(watch [Jenny Bryan's presentation](https://www.youtube.com/watch?v=7oyiPBjLAWY) for this.)*
+:::
+
+::: {.center .fragment .fade-in}
+✅ It's about designing good (coding) interfaces ✅
+:::
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+::: {.center}
+<h2>Designing user interfaces</h2>
+:::
+
+::: {.center .fragment .fade-in}
+The inputs and outputs for users of statistical software
+:::
+
+<br>
+<br>
+<br>
+
+::: {.box-blond .center .fragment .fade-in}
+<br>
+<h3> 🌠 Your turn! 🌠</h3>
+
+What should be considered when designing a UI for data?
+
+<br>
+:::
+
+## {background-color="#333641" background-video="media/chatgpt.mp4" background-size=contain}
+
+## {background-color="#333641" background-image="backgrounds/chatgpt.png" background-size=contain}
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+<h2>User interface design varies by...</h2>
+
+<br>
+
+::: {.center .fragment .custom .blur}
+<h3>User</h3>
+:::
+
+::: {.center .blur}
+<h3>Device</h3>
+:::
+
+::: {.center .blur}
+<h3>Domain</h3>
+:::
+
+::: {.center .blur}
+<h3>Language</h3>
+:::
+
+::: {.center .blur}
+<h3>Developer</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.25 background-image="backgrounds/sigmund-Im_cQ6hQo10-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom .center style="height: 20%;"}
+<h2>Intended users</h2>
+:::
+
+<br>
+
+::: {.center .fragment}
+Are you designing for a technical user or not?
+:::
+
+::: {.center .fragment}
+Which tools do you are your intended users familiar with?
+:::
+
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+<h2>User interface design varies by...</h2>
+
+<br>
+
+::: {.center}
+<h3>User</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Device</h3>
+:::
+
+::: {.center .blur}
+<h3>Domain</h3>
+:::
+
+::: {.center .blur}
+<h3>Language</h3>
+:::
+
+::: {.center .blur}
+<h3>Developer</h3>
+:::
+
+## {background-color="black" background-image="backgrounds/glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom .center style="height: 80%"}
+<h2>Human interface devices (HIDs)</h2>
+:::
+
+::: {.center}
+HIDs exchange inputs and outputs between you and software.
+:::
+
+## Input devices {.center}
+
+::: {.r-stack}
+![](media/mouse.jpg){.fragment width="600"}
+
+![](media/clay-banks-PXaQXThG1FY-unsplash.jpg){.fragment width="600"}
+
+![](media/Google_Home_sitting_on_table.jpg){.fragment width="600"}
+
+![](media/touch.jpg){.fragment width="600"}
+
+:::
+
+
+## Output devices {.center}
+
+::: {.r-stack}
+![](media/lukas-blazek-mcSDtbWXUZU-unsplash.jpg){.fragment width="600"}
+
+![](media/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg){.fragment width="600"}
+
+![](media/ux-indonesia-8mikJ83LmSQ-unsplash.jpg){.fragment width="600"}
+
+![](media/3dprint.jpg){.fragment width="600"}
+
+![](media/arvr.png){.fragment width="600"}
+:::
+
+:::{.notes}
+* display
+* 2d printing
+* 3d printing
+* AR/VR
+* sound
+:::
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+<h2>User interface design varies by...</h2>
+
+<br>
+
+::: {.center}
+<h3>User</h3>
+:::
+
+::: {.center}
+<h3>Device</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Domain</h3>
+:::
+
+::: {.center .blur}
+<h3>Language</h3>
+:::
+
+::: {.center .blur}
+<h3>Developer</h3>
+:::
+
+
+## Variation by domain
+
+Languages and style for math stats, data stats, etc.
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+<h2>User interface design varies by...</h2>
+
+<br>
+
+::: {.center}
+<h3>User</h3>
+:::
+
+::: {.center}
+<h3>Device</h3>
+:::
+
+::: {.center}
+<h3>Domain</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Language</h3>
+:::
+
+::: {.center .blur}
+<h3>Developer</h3>
+:::
+
+
+## {background-color="black" data-background-opacity=0.5 background-image="backgrounds/walkator-klMii3cR9iI-unsplash.jpg" background-size=cover}
+
+::: {.center}
+<h2>Design variation by language</h2>
+:::
+
+<br>
+<br>
+
+::: {.center .fragment .custom .blur}
+<h2>Syntax</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>Paradigm</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>Community</h2>
+:::
+
+## Case study: {background-color="#3b5998"}
+
+<br>
+<br>
+<br>
+
+::: {.center .fragment}
+![](media/prophet.svg){.center width="300"}
+<br>
+
+Developed by Facebook for R and Python users.
+:::
+
+## Case study: Prophet for Python {background-color="#3b5998" auto-animate=true}
+
+```python
+# load software
+import pandas as pd
+from prophet import Prophet
+
+# data requires time in 'ds' and response in 'y' columns
+df = pd.read_csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+```
+
+## Case study: Prophet for Python {background-color="#3b5998" auto-animate=true}
+
+```python
+# load software
+import pandas as pd
+from prophet import Prophet
+
+# data requires time in 'ds' and response in 'y' columns
+df = pd.read_csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m = Prophet()
+m.fit(df)
+```
+
+## Case study: Prophet for Python {background-color="#3b5998" auto-animate=true}
+
+```python
+# load software
+import pandas as pd
+from prophet import Prophet
+
+# data requires time in 'ds' and response in 'y' columns
+df = pd.read_csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m = Prophet()
+m.fit(df)
+
+# produce forecasts
+future = m.make_future_dataframe(periods=365)
+forecast = m.predict(future)
+```
+
+## Case study: Prophet for Python {background-color="#3b5998" auto-animate=true}
+
+```python
+# load software
+import pandas as pd
+from prophet import Prophet
+
+# data requires time in 'ds' and response in 'y' columns
+df = pd.read_csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m = Prophet()
+m.fit(df)
+
+# produce forecasts
+future = m.make_future_dataframe(periods=365)
+forecast = m.predict(future)
+
+# plot results
+fig1 = m.plot(forecast)
+fig2 = m.plot_components(forecast)
+```
+
+## Case study: Prophet for R {background-color="#3b5998" auto-animate=true}
+
+```r
+# load software
+library(prophet)
+
+# data requires time in 'ds' and response in 'y' columns
+df <- read.csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+```
+
+## Case study: Prophet for R {background-color="#3b5998" auto-animate=true}
+
+```r
+# load software
+library(prophet)
+
+# data requires time in 'ds' and response in 'y' columns
+df <- read.csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m <- prophet()
+m <- fit.prophet(m, df)
+```
+
+:::{.center}
+(this is slightly changed from the current documentation)
+:::
+
+## Case study: Prophet for R {background-color="#3b5998" auto-animate=true}
+
+```r
+# load software
+library(prophet)
+
+# data requires time in 'ds' and response in 'y' columns
+df <- read.csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m <- prophet()
+m <- fit.prophet(m, df)
+
+# produce forecasts
+future <- make_future_dataframe(m, periods = 365)
+forecast <- predict(m, future)
+```
+
+## Case study: Prophet for R {background-color="#3b5998" auto-animate=true}
+
+```r
+# load software
+library(prophet)
+
+# data requires time in 'ds' and response in 'y' columns
+df <- read.csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+
+# specify and estimate model
+m <- prophet()
+m <- fit.prophet(m, df)
+
+# produce forecasts
+future <- make_future_dataframe(m, periods = 365)
+forecast <- predict(m, future)
+
+# plot results
+plot(m, forecast)
+prophet_plot_components(m, forecast)
+```
+
+## Case study: Prophet {background-color="#3b5998"}
+
+<br>
+
+<h3>Pros:</h3>
+
+::: {.fragment}
+✅ Very similar interface, easy to switch languages.
+
+✅ Easy to learn the few functions which produce forecasts.
+:::
+
+::: {.fragment}
+<h3>Cons:</h3>
+:::
+
+::: {.fragment}
+❌ Doesn't follow some R design themes.
+
+❌ Linear code flow makes non-standard analysis hard.
+:::
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
+
+<h2>User interface design varies by...</h2>
+
+<br>
+
+::: {.center}
+<h3>User</h3>
+:::
+
+::: {.center}
+<h3>Device</h3>
+:::
+
+::: {.center}
+<h3>Domain</h3>
+:::
+
+::: {.center}
+<h3>Language</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Developer</h3>
+:::
+
+## Variation by author
+
+base/tidy/bioconductor
+single purpose functions vs versatile grammars
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+::: {.v-center-bottom .center style="height: 30%"}
+<h2>Patterns of good software design</h2>
+:::
+
+forecast package / fable package
+
+Good code design is:
+
+* Simple/intuitive
+* Consistent
+* Accessible
+* Provides helpful feedback (tidyverse hints)
+
+:::{.notes}
+Simple/intuitive: Software should have a simple and intuitive interface that is easy to navigate and use. Users should be able to easily find the features they need and understand how to use them.
+
+Consistency: The design of the software should be consistent throughout. Common functions should return the same structured output.
+
+Helpful feedback: Software should provide feedback to the user when they perform an action, such as displaying a message when an error occurs. It should also provide guidance to the user when they need help or are unsure of how to perform a task.
+
+Accessibility: Software should be designed to be accessible to users with disabilities. This can include features like text-to-speech and keyboard shortcuts.
+:::
