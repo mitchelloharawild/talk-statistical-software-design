@@ -270,15 +270,15 @@ Which tools do you are your intended users familiar with?
 <h3>Developer</h3>
 :::
 
-## {background-color="black" background-image="backgrounds/glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg" background-size=cover}
+<!-- ## {background-color="black" background-image="backgrounds/glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg" background-size=cover} -->
 
-::: {.v-center-bottom .center style="height: 80%"}
-<h2>Human interface devices (HIDs)</h2>
-:::
+<!-- ::: {.v-center-bottom .center style="height: 80%"} -->
+<!-- <h2>Human interface devices (HIDs)</h2> -->
+<!-- ::: -->
 
-::: {.center}
-HIDs exchange inputs and outputs between you and software.
-:::
+<!-- ::: {.center} -->
+<!-- HIDs exchange inputs and outputs between you and software. -->
+<!-- ::: -->
 
 ## Input devices {.center}
 
@@ -1059,5 +1059,5 @@ Your software design should bee:
 <br>
 
 ::: {.center .fragment}
-<h3>Thanks for your time, hope it was worthwhile!</h3>
+<h3>Thanks for your time!</h3>
 :::
