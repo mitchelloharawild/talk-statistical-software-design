@@ -908,6 +908,21 @@ gas_tsbl |>
 ```
 :::
 
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jonathan-borba-xRDuEeG1TVI-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Consistent</h2>
+
+:::{.center}
+Consistency within your own software is a must.
+:::
+
+<br> 
+
+:::{.center .fragment}
+It's even better to be consistent with your community.
+:::
+
 ## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
 
 <h2>Patterns of good software design</h2>
