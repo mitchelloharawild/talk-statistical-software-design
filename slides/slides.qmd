@@ -3,6 +3,8 @@ from: markdown+emoji
 format: 
   revealjs:
     css: custom.css
+    progress: false
+    menu: false
 ---
 
 ```{r}
