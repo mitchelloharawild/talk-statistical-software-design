@@ -1,8 +1,18 @@
 ---
+from: markdown+emoji
 format: 
   revealjs:
     css: custom.css
 ---
+
+```{r}
+#| include: false
+library(fable)
+library(forecast)
+library(ggplot2)
+options(width = 75)
+```
+
 
 ## {background-color="white" background-image="backgrounds/joanna-kosinska-1_CMoFsPfso-unsplash.jpg" background-size=cover}
 
@@ -16,6 +26,27 @@ The design of statistical software
 Mitchell O'Hara-Wild
 :::
 
+## {background-color="black" data-background-opacity=0.5 background-image="backgrounds/rhondak-native-florida-folk-artist-_Yc7OtfFn-0-unsplash.jpg" background-size=cover}
+
+<br>
+<br>
+
+::: {.center}
+<h2>Materials are available on GitHub</h2>
+:::
+
+::: {.center}
+[@github/mitchelloharawild/talk-statistical-software-design](https://github.com/mitchelloharawild/talk-statistical-software-design)
+:::
+
+<br>
+<br>
+
+::: {.center}
+<h5>Background images from [unsplash.com](https://unsplash.com) contributors</h5>
+:::
+
+
 ## {background-color="white" background-image="backgrounds/eran-menashri-zfVIh4cX_4c-unsplash.jpg" background-size=cover}
 
 ::: {.v-center-bottom style="height: 40%"}
@@ -23,7 +54,7 @@ This presentation is <span class="fragment strike" data-fragment-index="1">biase
 :::
 
 ::: {.v-center}
-<p class="fragment fade-in" data-fragment-index="1">opinionated! 😇</p>
+<p class="fragment fade-in" data-fragment-index="1">opinionated! :innocent:</p>
 :::
 
 ## {background-color="white" background-image="backgrounds/PXL_20230128_014531932.jpg" background-size=cover}
@@ -43,23 +74,23 @@ So, who am I?
 I like to...
 
 :::{.center .fragment .fade-in}
-🛠️ Make things 🛠️
+:hammer_and_wrench: Make things :hammer_and_wrench:
 :::
 
 :::{.center .fragment .fade-in}
-🍄🌱 Grow food 🍯🥚
+:mushroom::seedling:Grow food :honey_pot::egg:
 :::
 
 :::{.center .fragment .fade-in}
-🖌️ Design systems 🎨
+:memo: Design systems :art:
 :::
 
 :::{.center .fragment .fade-in}
-💻 Write code 💻
+:computer: Write code :computer:
 :::
 
 :::{.center .fragment .fade-in}
-📈 Utilise data 📊
+:chart_with_upwards_trend: Utilise data :bar_chart:
 :::
 
 ::: {.center .fragment .fade-in}
@@ -120,7 +151,7 @@ I will explore statistical software design with increasing specificity toward th
 <br>
 
 ::: {.center .fragment .fade-in}
-So yes, this talk is also <u>**biased**</u> 🙃
+So yes, this talk is also <u>**biased**</u> :upside_down_face:
 :::
 
 ## {background-color="white" background-image="backgrounds/scott-webb-hDyO6rr3kqk-unsplash.jpg" background-size=cover}
@@ -132,13 +163,13 @@ The design of statistical software
 :::
 
 ::: {.center .fragment .fade-in}
-⚠️ This talk is not about writing good code! ⚠️
+:warning: This talk is not about writing good code! :warning:
 <br>
 *(watch [Jenny Bryan's presentation](https://www.youtube.com/watch?v=7oyiPBjLAWY) for this.)*
 :::
 
 ::: {.center .fragment .fade-in}
-✅ It's about designing good (coding) interfaces ✅
+:white_check_mark: It's about designing good (coding) interfaces :white_check_mark:
 :::
 
 ## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
@@ -157,7 +188,7 @@ The inputs and outputs for users of statistical software
 
 ::: {.box-blond .center .fragment .fade-in}
 <br>
-<h3> 🌠 Your turn! 🌠</h3>
+<h3>:stars: Your turn! :stars:</h3>
 
 What should be considered when designing a UI for data?
 
@@ -310,9 +341,34 @@ HIDs exchange inputs and outputs between you and software.
 :::
 
 
-## Variation by domain
+## {background-color="black" data-background-opacity=0.5 background-image="backgrounds/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg" background-size=cover}
 
-Languages and style for math stats, data stats, etc.
+::: {.center}
+<h2>Designing software for the domain</h2>
+:::
+
+<br>
+<br>
+
+::: {.center .fragment .custom .blur}
+<h2>Data exploration</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>Math and probability</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>Bioinformatics</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>AI modelling</h2>
+:::
+
+::: {.center .fragment .custom .blur}
+<h2>Time series</h2>
+:::
 
 ## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
 
@@ -518,9 +574,9 @@ prophet_plot_components(m, forecast)
 <h3>Pros:</h3>
 
 ::: {.fragment}
-✅ Very similar interface, easy to switch languages.
+:white_check_mark: Very similar interface, easy to switch languages.
 
-✅ Easy to learn the few functions which produce forecasts.
+:white_check_mark: Easy to learn the few functions which produce forecasts.
 :::
 
 ::: {.fragment}
@@ -528,9 +584,9 @@ prophet_plot_components(m, forecast)
 :::
 
 ::: {.fragment}
-❌ Doesn't follow some R design themes.
+:x: Doesn't follow some R design themes.
 
-❌ Linear code flow makes non-standard analysis hard.
+:x: Linear code flow makes non-standard analysis hard.
 :::
 
 ## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/med-badr-chemmaoui-ZSPBhokqDMc-unsplash.jpg" background-size=cover}
@@ -559,32 +615,432 @@ prophet_plot_components(m, forecast)
 <h3>Developer</h3>
 :::
 
-## Variation by author
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/barney-yau-BbGuVc9YTaw-unsplash.jpg" background-size=cover}
 
-base/tidy/bioconductor
-single purpose functions vs versatile grammars
+::: {.center}
+<h3>Design variations by author / group</h3>
+:::
+
+<br>
+<br>
+
+::: {.center .fragment .custom .blur}
+<h3>base R, tidy R, bioconductor</h3>
+:::
+
+<br>
+
+::: {.center .fragment .custom .blur}
+<h3>dplyr, ggplot2, shiny</h3>
+:::
+
+<br>
+
+::: {.center .fragment .custom .blur}
+<h3>functions or grammars</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jen-theodore-Yu5fd5paLlc-unsplash.jpg" background-size=cover}
+
+::: {.center}
+<h2>Designs from the forecast package</h2>
+:::
+
+<br>
+<br>
+
+::: {.center .fragment}
+<h2>That I re-designed for fable</h2>
+:::
+
+<br>
+<br>
+
+::: {.center .fragment}
+![](media/fableforecast.png)
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jen-theodore-Yu5fd5paLlc-unsplash.jpg" background-size=cover}
+
+<h2>Case study:</h2>
+
+Forecasting Australian gas production
+
+```{r}
+gas_tsbl <- as_tsibble(gas) |> dplyr::rename(Month = index, Gas = value)
+gas_tsbl |> 
+  autoplot(Gas)
+```
+
 
 ## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
 
-::: {.v-center-bottom .center style="height: 30%"}
 <h2>Patterns of good software design</h2>
+
+<br>
+
+::: { .fragment .custom .blur}
+<h3>Simple and intuitive</h3>
 :::
 
-forecast package / fable package
+::: { .blur}
+<h3>Flexible</h3>
+:::
 
-Good code design is:
+::: { .blur}
+<h3>Consistent</h3>
+:::
 
-* Simple/intuitive
-* Consistent
-* Accessible
-* Provides helpful feedback (tidyverse hints)
+::: { .blur}
+<h3>Accessible</h3>
+:::
+
+::: { .blur}
+<h3>Provides feedback</h3>
+:::
 
 :::{.notes}
 Simple/intuitive: Software should have a simple and intuitive interface that is easy to navigate and use. Users should be able to easily find the features they need and understand how to use them.
 
 Consistency: The design of the software should be consistent throughout. Common functions should return the same structured output.
 
-Helpful feedback: Software should provide feedback to the user when they perform an action, such as displaying a message when an error occurs. It should also provide guidance to the user when they need help or are unsure of how to perform a task.
+Helpful feedback: Software should Provide helpful feedback to the user when they perform an action, such as displaying a message when an error occurs. It should also provide guidance to the user when they need help or are unsure of how to perform a task.
 
 Accessibility: Software should be designed to be accessible to users with disabilities. This can include features like text-to-speech and keyboard shortcuts.
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/dan-lohmar-0zeb4q6odlE-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Simple and intuitive</h2>
+
+:::{.fragment}
+```{r}
+#| echo: true
+library(forecast)
+fit <- ets(gas, lambda = 0, model = "AAA")
+forecast(fit, h = 72)
+```
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/dan-lohmar-0zeb4q6odlE-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Simple and intuitive</h2>
+
+```{r}
+#| echo: true
+library(forecast)
+fit <- ets(gas, lambda = 0, model = "AAA")
+forecast(fit, h = 72)$mean
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/dan-lohmar-0zeb4q6odlE-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Simple and intuitive</h2>
+
+```{r}
+#| echo: true
+library(forecast)
+fit <- ets(gas, lambda = 0, model = "AAA")
+forecast(fit, h = 72, biasadj = TRUE)$mean
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/dan-lohmar-0zeb4q6odlE-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Simple and intuitive</h2>
+
+```{r}
+#| echo: true
+library(fable)
+gas_tsbl |> 
+  model(ets = ETS(log(Gas) ~ error("A") + trend("A") + season("A"))) |> 
+  forecast(h = "6 years")
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/dan-lohmar-0zeb4q6odlE-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Simple and intuitive</h2>
+
+```{r}
+#| echo: true
+library(fable)
+gas_tsbl |> 
+  model(ets = ETS(log(Gas) ~ error("A") + trend("A") + season("A"))) |> 
+  forecast(h = "6 years") |> 
+  dplyr::mutate(mean(Gas), median(Gas))
+```
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+<h2>Patterns of good software design</h2>
+
+<br>
+
+::: {.div}
+<h3>Simple and intuitive</h3>
+:::
+
+::: { .fragment .custom .blur}
+<h3>Flexible</h3>
+:::
+
+::: { .blur}
+<h3>Consistent</h3>
+:::
+
+::: { .blur}
+<h3>Accessible</h3>
+:::
+
+::: { .blur}
+<h3>Provides feedback</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/kike-vega-F2qh3yjz6Jk-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Flexible</h2>
+
+::: {.fragment}
+```{r}
+#| echo: true
+library(forecast)
+fit <- ets(gas + 1, lambda = 0, model = "AAA")
+forecast(fit, h = 72, biasadj = TRUE)
+```
+:::
+
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/kike-vega-F2qh3yjz6Jk-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Flexible</h2>
+
+```{r}
+#| echo: true
+library(fable)
+gas_tsbl |> 
+  model(ets = ETS(log(Gas + 1) ~ error("A") + trend("A") + season("A"))) |> 
+  forecast(h = "6 years")
+```
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+<h2>Patterns of good software design</h2>
+
+<br>
+
+::: {.div}
+<h3>Simple and intuitive</h3>
+:::
+
+::: {.div}
+<h3>Flexible</h3>
+:::
+
+::: { .fragment .custom .blur}
+<h3>Consistent</h3>
+:::
+
+::: { .blur}
+<h3>Accessible</h3>
+:::
+
+::: { .blur}
+<h3>Provides feedback</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jonathan-borba-xRDuEeG1TVI-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Consistent</h2>
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| error: true
+library(forecast)
+fit_ets <- ets(gas + 1, lambda = 0, model = "AAA")
+fc_ets <- forecast(fit_ets, h = 72, biasadj = TRUE)
+fc_ets
+```
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jonathan-borba-xRDuEeG1TVI-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Consistent</h2>
+
+```{r}
+#| echo: true
+#| error: true
+library(forecast)
+fit_ets <- ets(gas + 1, lambda = 0, model = "AAA")
+fc_ets <- forecast(fit_ets, h = 72, biasadj = TRUE)
+fit_snaive <- snaive(gas)
+fc_snaive <- forecast(fit_snaive, h = 72)
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jonathan-borba-xRDuEeG1TVI-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Consistent</h2>
+
+```{r}
+#| echo: true
+#| error: true
+library(forecast)
+fit_ets <- ets(gas + 1, lambda = 0, model = "AAA")
+fc_ets <- forecast(fit_ets, h = 72, biasadj = TRUE)
+fit_snaive <- snaive(gas)
+# fc_snaive <- forecast(fit_snaive, h = 72)
+fit_snaive
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/jonathan-borba-xRDuEeG1TVI-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Consistent</h2>
+
+::: {.fragment}
+```{r}
+#| echo: true
+library(fable)
+gas_tsbl |> 
+  model(
+    ets = ETS(log(Gas + 1) ~ error("A") + trend("A") + season("A")),
+    snaive = SNAIVE(Gas)
+  ) |> 
+  forecast(h = "6 years")
+```
+:::
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+<h2>Patterns of good software design</h2>
+
+<br>
+
+::: {.div}
+<h3>Simple and intuitive</h3>
+:::
+
+::: {.div}
+<h3>Flexible</h3>
+:::
+
+::: {.div}
+<h3>Consistent</h3>
+:::
+
+::: { .fragment .custom .blur}
+<h3>Accessible</h3>
+:::
+
+::: { .blur}
+<h3>Provides feedback</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.5 background-image="backgrounds/dave-hoefler-hGe_wjAEW3Q-unsplash.jpg" background-size=cover}
+
+<h2 class="center">Accessible</h2>
+
+<br>
+
+::: {.center .fragment .custom .blur}
+<h3>Free and open source</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Readily available documentation</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Accessible to people of all abilities</h3>
+:::
+
+::: {.center .fragment .custom .blur}
+<h3>Internationalised</h3>
+:::
+
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+<h2>Patterns of good software design</h2>
+
+<br>
+
+::: {.div}
+<h3>Simple and intuitive</h3>
+:::
+
+::: {.div}
+<h3>Flexible</h3>
+:::
+
+::: {.div}
+<h3>Consistent</h3>
+:::
+
+::: {.div}
+<h3>Accessible</h3>
+:::
+
+::: { .fragment .custom .blur}
+<h3>Provides feedback</h3>
+:::
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/absolutvision-82TpEld0_e4-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Provide helpful feedback</h2>
+
+::: {.fragment}
+```{r}
+#| echo: true
+mu <- mean(gas)
+```
+:::
+
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/absolutvision-82TpEld0_e4-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Provide helpful feedback</h2>
+
+```{r}
+#| echo: true
+fc <- gas_tsbl |> 
+  model(ets = ETS(log(Gas + 1) ~ error("A") + trend("A") + season("A"))) |> 
+  forecast(h = "6 years") |> 
+  autoplot(gas_tsbl)
+```
+
+## {background-color="black" data-background-opacity=0.3 background-image="backgrounds/absolutvision-82TpEld0_e4-unsplash.jpg" background-size=cover auto-animate=true}
+
+<h2 class="center">Provide helpful feedback</h2>
+
+```{r}
+#| echo: true
+#| error: true
+gas_tsbl |> 
+  model(ets = ETS(log(Gas + 1) ~ error("A") + trend("A") + season("A"))) |> 
+  forecast(h = "6 years") |> 
+  autoplot(gas_tsbl) |> 
+  geom_point(colour = "blue")
+```
+
+## {background-color="white" data-background-opacity=0.5 background-image="backgrounds/dmitry-grigoriev-yxXpjF-RrnA-unsplash.jpg" background-size=cover}
+
+<h2>Some tips for designing good software</h2>
+
+<br>
+
+Your software design should bee:
+
+<h3>Simple</h3>
+
+<h3>Flexible</h3>
+
+<h3>Consistent</h3>
+
+<h3>Accessible</h3>
+
+<h3>Helpful</h3>
+
+<br>
+
+::: {.center .fragment}
+<h3>Thanks for your time, hope it was worthwhile!</h3>
 :::
