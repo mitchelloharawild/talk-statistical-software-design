@@ -11,6 +11,10 @@
 Slides and notes for a seminar presentation at the Monash University
 NUMBATs seminar on the 30th of March 2023.
 
+A recording of this presentation is available on YouTube here:
+<https://www.youtube.com/watch?v=TZZIZ1UQCv4> [![YouTube
+video](thumbnail.png)](https://www.youtube.com/watch?v=TZZIZ1UQCv4)
+
 #### Abstract
 
 The design of software interfaces can vary significantly depending on
